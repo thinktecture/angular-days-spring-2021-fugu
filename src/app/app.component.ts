@@ -23,6 +23,12 @@ export class AppComponent implements AfterViewInit {
 
   async ngAfterViewInit(): Promise<any> {
     // EX #2
+    const canvas = this.canvas.nativeElement;
+    const ctx = this.context = canvas.getContext('2d');
+
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'black';
 
     // EX #16
   }
