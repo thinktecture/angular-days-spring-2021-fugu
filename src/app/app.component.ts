@@ -41,6 +41,7 @@ export class AppComponent implements AfterViewInit {
 
   onPointerMove(canvas: HTMLCanvasElement, event: PointerEvent): void {
     // EX #4
+    this.context.fillRect(~~event.offsetX, ~~event.offsetY, 2, 2);
   }
 
   onPointerUp(): void {
