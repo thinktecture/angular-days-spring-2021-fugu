@@ -13,7 +13,12 @@ export class AppComponent implements AfterViewInit {
   context: CanvasRenderingContext2D;
 
   // EX #11
-
+  private fileOptions = {
+    types: [{
+      description: 'PNG files',
+      accept: {'image/png': ['.png']}
+    }]
+  };
 
   previousPoint: { x: number, y: number } | null = null;
   // EX #17
@@ -74,6 +79,12 @@ export class AppComponent implements AfterViewInit {
 
   async save(): Promise<void> {
     // EX #11
+    const blob = await this.paintService.toBlob(this.canvas.nativeElement);
+    const handle = await (window as any).showSaveFilePicker(this.fileOptions);
+    const writable = await handle.createWritable();
+    await writable.write(blob);
+    await writable.close();
+
     // EX #18
   }
 
