@@ -102,6 +102,16 @@ export class AppComponent implements AfterViewInit {
 
   async paste(): Promise<void> {
     // EX #14
+    const clipboardItems = await navigator.clipboard.read();
+    for (const clipboardItem of clipboardItems) {
+      for (const type of clipboardItem.types) {
+        if (type === 'image/png') {
+          const blob = await clipboardItem.getType(type);
+          const image = await this.paintService.getImage(blob);
+          this.context.drawImage(image, 0, 0);
+        }
+      }
+    }
   }
 
   async share(): Promise<any> {
