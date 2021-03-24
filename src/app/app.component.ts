@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Inject} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, ViewChild} from '@angular/core';
 import {PaintService} from './paint.service';
 import {DOCUMENT} from "@angular/common";
 
@@ -9,6 +9,8 @@ import {DOCUMENT} from "@angular/common";
 })
 export class AppComponent implements AfterViewInit {
   // EX #1
+  @ViewChild('canvas') canvas: ElementRef<HTMLCanvasElement>;
+  context: CanvasRenderingContext2D;
 
   // EX #11
 
