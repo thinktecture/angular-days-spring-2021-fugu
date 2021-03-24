@@ -94,6 +94,10 @@ export class AppComponent implements AfterViewInit {
 
   async copy(): Promise<void> {
     // EX #13
+    const blob = await this.paintService.toBlob(this.canvas.nativeElement);
+    await navigator.clipboard.write([
+      new ClipboardItem({[blob.type]: blob})
+    ]);
   }
 
   async paste(): Promise<void> {
