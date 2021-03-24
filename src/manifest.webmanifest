@@ -55,5 +55,12 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
-  ]
+  ],
+  "shortcuts": [{
+    "name": "About Paint",
+    "short_name": "About",
+    "description": "Show information about Paint",
+    "url": "/index.html",
+    "icons": [{ "src": "assets/icons/icon-512x512.png", "sizes": "512x512" }]
+  }]
 }
